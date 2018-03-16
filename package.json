@@ -1,23 +1,24 @@
 {
-  "name": "GitHub_App",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "dependencies": {
-    "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0",
-    "react-native-tab-navigator": "^0.3.4"
-  },
-  "devDependencies": {
-    "babel-jest": "22.4.1",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "22.4.2",
-    "react-test-renderer": "16.3.0-alpha.1"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
+	"name": "MyGithub",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0-alpha.6",
+		"react-native": "0.43.4",
+		"react-native-easy-toast": "^1.1.0",
+		"react-native-tab-navigator": "^0.3.4"
+	},
+	"devDependencies": {
+		"babel-jest": "22.4.1",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "22.4.2",
+		"react-test-renderer": "16.0.0-alpha.6"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
 }
