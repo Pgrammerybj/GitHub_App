@@ -1,7 +1,6 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
  */
 
 import React, {Component} from 'react';
@@ -15,6 +14,7 @@ import {
 import TabNavigator from 'react-native-tab-navigator';
 import Boy from "./Boy";
 import ListViewTest from "./ListViewTest";
+import FetchTest from "./FetchTest";
 
 export default class MyGithub extends Component {
 
@@ -90,7 +90,11 @@ export default class MyGithub extends Component {
                 {/*/>*/}
 
 
-                <ListViewTest/>
+                {/*<ListViewTest/>*/}
+
+                <FetchTest/>
+
+
             </View>
 
         );
