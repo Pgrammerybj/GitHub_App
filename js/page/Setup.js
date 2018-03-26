@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
 import {
-    View,
-    Text,
-    StyleSheet,
     Navigator
 } from 'react-native';
 import WelcomePage from  './WelcomePage'
@@ -24,7 +21,6 @@ function setUp() {
             />
         }
     }
-
     return <Root/>
-    
 }
+module.exports = setUp;
