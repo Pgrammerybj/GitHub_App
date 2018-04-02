@@ -3,10 +3,10 @@ import {
     StyleSheet,
     View,
     Text,
-    TextInput,
 } from 'react-native';
 import NavigationBar from "../common/NavigationBar";
 import DataRepository from "../expand/dao/DataRepository"
+import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view'
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -31,9 +31,9 @@ export default class PopularPage extends Component {
                     resultData: JSON.stringify(result),
                 })
             })
-            .catch(error=>{
+            .catch(error => {
                 this.setState({
-                    resultData:JSON.stringify(error),
+                    resultData: JSON.stringify(error),
                 })
             })
     }
@@ -51,23 +51,16 @@ export default class PopularPage extends Component {
                         backgroundColor: 'blue'
                     }}
                 />
-                <Text
-                    onPress={() => {
-                        this.onLoad()
-                    }}
-                    style={styles.tip}>获取数据</Text>
-                <TextInput
-                    style={{height: 40,borderWidth:1}}
-                    onChangeText={text => this.text = text}
-                />
-                <Text style={styles.text_message}>
-                    {this.state.resultData}
-                </Text>
+                <ScrollableTabView>
+                    <Text tabLabel='Java'>Java</Text>
+                    <Text tabLabel='Python'>Python</Text>
+                    <Text tabLabel='Php'>Php</Text>
+                    <Text tabLabel='JavaScript'>JavaScript</Text>
+                </ScrollableTabView>
             </View>
         );
     }
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
