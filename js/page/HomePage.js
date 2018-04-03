@@ -28,11 +28,11 @@ export default class HomePage extends Component {
                 <TabNavigator>
                     <TabNavigator.Item
                         title="Home"
-                        selectedTitleStyle={{color: "blue"}}
+                        selectedTitleStyle={{color: "#2196f3"}}
                         selected={this.state.selectedTab === 'tb_home'}
                         renderIcon={() => <Image style={styles.tabIcon}
                                                  source={require('../../res/images/ic_polular.png')}/>}
-                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: 'blue'}]}
+                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: '#2196f3'}]}
                                                          source={require('../../res/images/ic_polular.png')}/>}
                         badgeText="1"
                         onPress={() => this.setState({selectedTab: 'tb_home'})}>
@@ -41,10 +41,10 @@ export default class HomePage extends Component {
                     <TabNavigator.Item
                         title="Profile"
                         selected={this.state.selectedTab === 'tb_profile'}
-                        selectedTitleStyle={{color: "blue"}}
+                        selectedTitleStyle={{color: "#2196f3"}}
                         renderIcon={() => <Image style={styles.tabIcon}
                                                  source={require('../../res/images/ic_trending.png')}/>}
-                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: 'blue'}]}
+                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: '#2196f3'}]}
                                                          source={require('../../res/images/ic_trending.png')}/>}
                         onPress={() => this.setState({selectedTab: 'tb_profile'})}>
                         <View style={styles.secondPage}>
@@ -53,10 +53,10 @@ export default class HomePage extends Component {
                     <TabNavigator.Item
                         title="Favorite"
                         selected={this.state.selectedTab === 'tb_favorite'}
-                        selectedTitleStyle={{color: "blue"}}
+                        selectedTitleStyle={{color: "#2196f3"}}
                         renderIcon={() => <Image style={styles.tabIcon}
                                                  source={require('../../res/images/ic_favorite.png')}/>}
-                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: 'blue'}]}
+                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: '#2196f3'}]}
                                                          source={require('../../res/images/ic_favorite.png')}/>}
                         onPress={() => this.setState({selectedTab: 'tb_favorite'})}>
                         <View style={styles.thirdPage}>
@@ -65,9 +65,9 @@ export default class HomePage extends Component {
                     <TabNavigator.Item
                         title="Me"
                         selected={this.state.selectedTab === 'tb_me'}
-                        selectedTitleStyle={{color: "blue"}}
+                        selectedTitleStyle={{color: "#2196f3"}}
                         renderIcon={() => <Image style={styles.tabIcon} source={require('../../res/images/ic_my.png')}/>}
-                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: 'blue'}]}
+                        renderSelectedIcon={() => <Image style={[styles.tabIcon, {tintColor: '#2196f3'}]}
                                                          source={require('../../res/images/ic_my.png')}/>}
                         onPress={() => this.setState({selectedTab: 'tb_me'})}>
                         <View style={styles.fourPage}>
