@@ -51,11 +51,11 @@ export default class PopularPage extends Component {
                         backgroundColor: 'blue'
                     }}
                 />
-                <ScrollableTabView>
-                    <Text tabLabel='Java'>Java</Text>
-                    <Text tabLabel='Python'>Python</Text>
-                    <Text tabLabel='Php'>Php</Text>
-                    <Text tabLabel='JavaScript'>JavaScript</Text>
+                <ScrollableTabView renderTabBar={() => <ScrollableTabBar/>}>
+                    <Text tabLabel='Java' key='Java'/>
+                    <Text tabLabel='Android' key='Android'/>
+                    <Text tabLabel='Python' key='Python'/>
+                    <Text tabLabel='Php' key='Php'/>
                 </ScrollableTabView>
             </View>
         );
