@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
     View,
-    Text,
+    Image,
 } from 'react-native';
 
 import NavigationBar from '../common/NavigationBar'
@@ -20,7 +20,7 @@ export default class WelcomePage extends Component {
             this.props.navigator.resetTo({
                 component:HomePage
             })
-        },2000);
+        },2200);
     }
 
     componentWillUnmount(){
@@ -32,10 +32,12 @@ export default class WelcomePage extends Component {
             <View>
                 <NavigationBar
                     title={'欢迎'}
+                    statusBar={{
+                        backgroundColor:'#2196f3'
+                    }}
                 />
-                <Text>
-                    欢迎
-                </Text>
+                <Image source={require('../../res/images/yangqi.png')}/>
+                <Image style={{width:360,height:100}} source={require('../../res/images/python.jpg')}/>
             </View>
         );
     }
