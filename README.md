@@ -85,3 +85,42 @@ Post请求
 2018.04.03
 * 添加了"最热"模块数据和展示
 * 抽取了item的统一样式
+
+2018.04.04
+* 添加了AsyncStorage的测试Demo，AsyncStorageTest.js
+* 准备收拾行李去北京西啦
+```angular2html
+addTab() {
+        AsyncStorage.setItem(KEY_TEXT, this.text, (error) => {
+            if (!error) {
+                this.toast.show('保存成功！',DURATION.LENGTH_SHORT)
+            } else {
+                this.toast.show('保存失败：' + error,DURATION.LENGTH_SHORT)
+            }
+        })
+    }
+
+    deleteTab() {
+        AsyncStorage.removeItem(KEY_TEXT, (error) => {
+            if (!error) {
+                this.toast.show('删除成功！',DURATION.LENGTH_SHORT)
+            } else {
+                this.toast.show('删除失败：' + error,DURATION.LENGTH_SHORT)
+            }
+        })
+    }
+
+    getTab() {
+        AsyncStorage.getItem(KEY_TEXT, (error, result) => {
+            if (!error) {
+                if (!result) {
+                    this.toast.show('没有内容',DURATION.LENGTH_SHORT)
+                } else {
+                    this.toast.show('获取成功：' + result,DURATION.LENGTH_SHORT)
+                }
+            } else {
+                this.toast.show('获取失败：' + error,DURATION.LENGTH_SHORT)
+            }
+        })
+    }
+```
