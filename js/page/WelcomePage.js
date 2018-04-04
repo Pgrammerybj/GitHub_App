@@ -31,7 +31,7 @@ export default class WelcomePage extends Component {
         return (
             <View>
                 <NavigationBar
-                    title={'欢迎'}
+                    title={'Welcome'}
                     statusBar={{
                         backgroundColor:'#2196f3'
                     }}

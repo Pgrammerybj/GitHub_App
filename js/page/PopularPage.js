@@ -19,7 +19,7 @@ export default class PopularPage extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title='最热'
+                    title='Popular'
                     statusBar={{
                         backgroundColor: '#2196f3'
                     }}

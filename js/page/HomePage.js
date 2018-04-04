@@ -27,7 +27,7 @@ export default class HomePage extends Component {
             <View style={styles.container}>
                 <TabNavigator>
                     <TabNavigator.Item
-                        title="Home"
+                        title="Popular"
                         selectedTitleStyle={{color: "#2196f3"}}
                         selected={this.state.selectedTab === 'tb_home'}
                         renderIcon={() => <Image style={styles.tabIcon}
@@ -39,7 +39,7 @@ export default class HomePage extends Component {
                         <PopularPage/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
-                        title="Profile"
+                        title="Trending"
                         selected={this.state.selectedTab === 'tb_profile'}
                         selectedTitleStyle={{color: "#2196f3"}}
                         renderIcon={() => <Image style={styles.tabIcon}
