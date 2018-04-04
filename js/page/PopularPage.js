@@ -19,9 +19,9 @@ export default class PopularPage extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'最热'}
-                    style={{
-                        backgroundColor: 'blue'
+                    title='最热'
+                    statusBar={{
+                        backgroundColor: '#2196f3'
                     }}
                 />
                 <ScrollableTabView
@@ -82,7 +82,7 @@ class PopularTab extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{flex:1}}>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={(data) => PopularTab.renderRow(data)}
