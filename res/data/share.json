@@ -1,0 +1,20 @@
+{
+  "share_app": {
+    "title": "分享GitHub",
+    "content": "GitHub最受欢迎的开源项目浏览神器",
+    "imgUrl": "http://www.ppowan.org/io/GitHubPopular/img/ic_app.png",
+    "url":"http://www.ppowan.org/io/GitHubPopular/"
+  },
+  "share_blog": {
+    "title": "分享JackYang技术博客",
+    "content": "关于移动端技术 | Android&iOS Development Manager | 这里是 JackYang@杨保疆 的个人博客,分享技术干货。",
+    "imgUrl": "http://www.ppowan.com/io/GitHubPopular/img/ic_app_120.png",
+    "url":"http://www.ppowan.org/"
+  },
+  "share_repo": {
+    "title": "来自GitHub的分享",
+    "content": "我在GitHub发现开源项目",
+    "imgUrl": "http://www.ppowan.org/io/GitHub/img/ic_app_120.png",
+    "url":"http://www.ppowan.org/io/GitHub/"
+  }
+}

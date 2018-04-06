@@ -91,7 +91,7 @@ class PopularTab extends Component {
                             refreshing={this.state.isRefreshing}
                             onRefresh={() => this.onLoad()}
                             progressBackgroundColor={'#ffffff'}
-                            colors={['#ff0000', '#B03060', '#2196f3', '#6A5ACD']}
+                            colors={['#ff0000','#2196f3','#B03060','#6A5ACD']}
                         />
                     }
                 />
