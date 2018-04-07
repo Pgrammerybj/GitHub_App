@@ -41,7 +41,7 @@ export default class CustomLabelPage extends Component {
             if (flag === 'left') {
                 Alert.alert('Flag', 'Whether to save the modified data?')
                 Alert.alert(
-                    null,
+                    'Confirm Exit',
                     'Whether to save the modified data?',
                     [
                         {text: 'Cancel', onPress: () => this.props.navigator.pop()},
