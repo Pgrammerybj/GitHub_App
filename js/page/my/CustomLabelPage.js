@@ -62,10 +62,6 @@ export default class CustomLabelPage extends Component {
         }
     }
 
-    onRemove() {
-        this.languageDao.remove();
-    }
-
     onClick(date) {
         date.checked = !date.checked;
         ArrayUtils.updateArray(this.ChangeValues, date)

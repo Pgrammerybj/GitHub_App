@@ -17,4 +17,18 @@ export default class ArrayUtils {
         }
         array.push(item);
     }
+
+    /**
+     * 数组Clone的方法
+     * @param array 需要克隆的数组
+     * @returns {*}
+     */
+    static clone(array) {
+        if (!array) return [];
+        let cloneArray = [];
+        for (let i = 0; i < array.length; i++) {
+            cloneArray[i] = array[i];
+        }
+        return cloneArray;
+    }
 }

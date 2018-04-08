@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import CustomLabelPage from "./my/CustomLabelPage";
 import NavigationBar from "../common/NavigationBar";
+import SortLabelPage from "./my/SortLabelPage";
 
 export default class MyPage extends Component {
     // 构造
@@ -19,7 +20,7 @@ export default class MyPage extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'Me'}
+                    title={'My'}
                     statusBar={{backgroundColor: '#2196f3'}}
                 />
                 <Text
@@ -32,6 +33,17 @@ export default class MyPage extends Component {
                     }}
                 >
                     自定义标签页
+                </Text>
+                <Text
+                    style={styles.text_style}
+                    onPress={() => {
+                        this.props.navigator.push({
+                            component: SortLabelPage,
+                            params: {...this.props}
+                        })
+                    }}
+                >
+                    标签排序页
                 </Text>
             </View>
         );
