@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Image, Text, View, TouchableHighlight} from 'react-native';
+import {StyleSheet, Image, Text, View, TouchableHighlight, Alert} from 'react-native';
 import NavigationBar from '../../common/NavigationBar';
 import ViewUtils from '../../utils/ViewUtils';
 import LanguageDao, {FLAG_LANGUAGE} from '../../expand/dao/LanguageDao';
@@ -48,8 +48,50 @@ export default class SortLabelPage extends Component {
         this.originalCheckedArray = ArrayUtils.clone(checkedArray);
     }
 
-    onSave() {
+    /**
+     * 返回按钮
+     */
+    onBack() {
+        if (ArrayUtils.isEqual(this.originalCheckedArray, this.state.checkedArray)) {
+            this.props.navigator.pop();
+            return;
+        }
+        Alert.alert(
+            'Confirm Exit',
+            'Whether to save the modified data?',
+            [
+                {text: 'Cancel', onPress: () => this.props.navigator.pop()},
+                {
+                    text: 'OK', onPress: () => {
+                        this.onSave(true);
+                        this.props.navigator.pop();
+                    }
+                },
+            ], {cancelable: false}
+        )
+    }
+
+    /**
+     * 点击右侧保存按钮逻辑
+     */
+    onSave(isChecked) {
+        if (isChecked || !ArrayUtils.isEqual(this.originalCheckedArray, this.state.checkedArray)) {
+            this.getSortResult();
+            this.languageDao.save(this.sortResultArray)
+        }
         this.props.navigator.pop();
+    }
+
+    /**
+     * 获取排序后的数组
+     */
+    getSortResult() {
+        this.sortResultArray = ArrayUtils.clone(this.dataArray);
+        for (let i = 0; i < this.originalCheckedArray.length; i++) {
+            let item = this.originalCheckedArray[i];
+            let index = this.dataArray.indexOf(item);
+            this.sortResultArray.splice(index, 1, this.state.checkedArray[i]);
+        }
     }
 
     render() {
@@ -58,8 +100,8 @@ export default class SortLabelPage extends Component {
                 <NavigationBar
                     title={'标签排序'}
                     statusBar={{backgroundColor: '#2196f3'}}
-                    leftButton={ViewUtils.getLeftButton(() => this.onSave())}
-                    rightButton={ViewUtils.getRightTextButton("Save", () => this.onSave())}
+                    leftButton={ViewUtils.getLeftButton(() => this.onBack())}
+                    rightButton={ViewUtils.getRightTextButton("Save", () => this.onSave(false))}
                 />
                 <SortableListView
                     style={{flex: 1}}

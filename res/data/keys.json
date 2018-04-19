@@ -1,12 +1,12 @@
 [
   {
-    "path": "stars:>1",
+    "path": "all",
     "name": "ALL",
     "short_name": "ALL",
     "checked": true
   },
   {
-    "path": "Android",
+    "path": "android",
     "name": "Android",
     "checked": true
   },
@@ -16,17 +16,17 @@
     "checked": true
   },
   {
-    "path": "Java",
+    "path": "java",
     "name": "Java",
     "checked": false
   },
   {
-    "path": " Python",
+    "path": " python",
     "name": " Python",
     "checked": false
   },
   {
-    "path": " jQuery",
+    "path": " jquery",
     "name": " jQuery",
     "checked": false
   },

@@ -23,6 +23,7 @@ export default class MyPage extends Component {
                     title={'My'}
                     statusBar={{backgroundColor: '#2196f3'}}
                 />
+
                 <Text
                     style={styles.text_style}
                     onPress={() => {
@@ -31,9 +32,9 @@ export default class MyPage extends Component {
                             params: {...this.props}
                         })
                     }}
-                >
-                    自定义标签页
+                >自定义标签页
                 </Text>
+
                 <Text
                     style={styles.text_style}
                     onPress={() => {
@@ -42,8 +43,18 @@ export default class MyPage extends Component {
                             params: {...this.props}
                         })
                     }}
-                >
-                    标签排序页
+                >标签排序页
+                </Text>
+
+                <Text
+                    style={styles.text_style}
+                    onPress={() => {
+                        this.props.navigator.push({
+                            component: CustomLabelPage,
+                            params: {...this.props, isRemove: true}
+                        })
+                    }}
+                >移除标签页
                 </Text>
             </View>
         );
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     text_style: {
-        alignSelf:'center',
+        alignSelf: 'center',
         fontSize: 18,
     }
 });

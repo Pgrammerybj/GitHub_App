@@ -18,13 +18,13 @@ export default class PopularPage extends Component {
 
     constructor(props) {
         super(props);
-        this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
         this.state = {
             languages: []
         };
     }
 
     componentDidMount() {
+        this.languageDao = new LanguageDao(FLAG_LANGUAGE.flag_key);
         this.loadData();
     }
 

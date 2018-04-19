@@ -11,6 +11,7 @@ export default class CustomLabelPage extends Component {
     constructor(props) {
         super(props);
         this.ChangeValues = [];
+        this.isRemove = !!this.props.isRemove;
         this.state = {
             dataArray: []
         }
@@ -39,7 +40,6 @@ export default class CustomLabelPage extends Component {
     onSave(flag) {
         if (this.ChangeValues.length !== 0) {
             if (flag === 'left') {
-                Alert.alert('Flag', 'Whether to save the modified data?')
                 Alert.alert(
                     'Confirm Exit',
                     'Whether to save the modified data?',
@@ -47,19 +47,25 @@ export default class CustomLabelPage extends Component {
                         {text: 'Cancel', onPress: () => this.props.navigator.pop()},
                         {
                             text: 'OK', onPress: () => {
-                                this.languageDao.save(this.state.dataArray);
-                                this.props.navigator.pop();
+                                this.save();
                             }
                         },
                     ], {cancelable: false}
                 )
             } else {
-                this.languageDao.save(this.state.dataArray);
-                this.props.navigator.pop();
+                this.save();
             }
-        }else {
+        } else {
             this.props.navigator.pop();
         }
+    }
+
+    save() {
+        for (let i = 0; i < this.ChangeValues.length; i++) {
+            ArrayUtils.remove(this.state.dataArray, this.ChangeValues[i]);
+        }
+        this.languageDao.save(this.state.dataArray);
+        this.props.navigator.pop();
     }
 
     onClick(date) {
@@ -68,7 +74,6 @@ export default class CustomLabelPage extends Component {
     }
 
     renderView() {
-
         if (!this.state.dataArray || this.state.dataArray.length === 0) return;
         let len = this.state.dataArray.length;
         let views = [];
@@ -96,11 +101,12 @@ export default class CustomLabelPage extends Component {
 
     renderCheckBox(date) {
         let leftText = date.name;
+        let isChecked = this.isRemove ? false : date.checked;
         return (
             <CheckBox
                 style={{flex: 1, margin: 10,}}
                 leftText={leftText}
-                isChecked={date.checked}
+                isChecked={isChecked}
                 onClick={() => this.onClick(date)}
                 checkedImage={<Image source={require('../my/img/ic_check_box.png')} style={styles.checkBox}/>}
                 unCheckedImage={<Image source={require('../my/img/ic_check_box_outline_blank.png')}
@@ -113,10 +119,10 @@ export default class CustomLabelPage extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'自定义标签'}
+                    title={this.isRemove ? '移除标签' : '自定义标签'}
                     statusBar={{backgroundColor: '#2196f3'}}
                     leftButton={ViewUtils.getLeftButton(() => this.onSave('left'))}
-                    rightButton={ViewUtils.getRightTextButton("Save", () => this.onSave('right'))}
+                    rightButton={ViewUtils.getRightTextButton(this.isRemove ? 'Remove' : 'Save', () => this.onSave('right'))}
                 />
                 <ScrollView>
                     {this.renderView()}
