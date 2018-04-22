@@ -137,4 +137,7 @@ addTab() {
 2018.04.08 23：52
 * 使用react-native-sortable-listview实现标签排序页面
 
+2018.04.22 22:24
+* 编写DataRepository类添加网络数据的缓存策略，以及数据失效的逻辑
+
 

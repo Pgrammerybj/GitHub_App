@@ -79,7 +79,7 @@ class PopularTab extends Component {
         this.state = {
             resultData: '',
             isRefreshing: true,
-            dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+            dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
         };
         this.dataRepository = new DataRepository();
     }
@@ -91,12 +91,14 @@ class PopularTab extends Component {
     onLoad() {
         this.setState({isRefreshing: true});
         let url = URL + this.props.tabLabel + QUERY_STR;
-        this.dataRepository.fetchNetRepository(url)
+        this.dataRepository
+            .fetchRepository(url)
             .then(result => {
+                let items = result && result.items ? result.items : result ? result : [];
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(result.items),
+                    dataSource: this.state.dataSource.cloneWithRows(items),
                     isRefreshing: false,
-                })
+                });
             })
             .catch(error => {
                 this.setState({
