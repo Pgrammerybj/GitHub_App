@@ -10,6 +10,7 @@ import DataRepository from "../expand/dao/DataRepository"
 import RepositoryCell from '../common/RepositoryCell'
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view'
 import LanguageDao, {FLAG_LANGUAGE} from '../expand/dao/LanguageDao';
+import RepositoryDetail from './RepositoryDetail';
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -53,7 +54,7 @@ export default class PopularPage extends Component {
         >
             {this.state.languages.map((result, i, array) => {
                 let len = array[i];
-                return len.checked ? <PopularTab tabLabel={len.name} key={len.path}/> : null
+                return len.checked ? <PopularTab {...this.props} tabLabel={len.name} key={len.path}/> : null
             })
             }
         </ScrollableTabView> : null;
@@ -107,9 +108,24 @@ class PopularTab extends Component {
             })
     }
 
-    static renderRow(data) {
+    onSelected(item) {
+        this.props.navigator.push({
+            title:item.full_name,
+            component: RepositoryDetail,
+            params: {
+                item: item,
+                ...this.props,
+            }
+        });
+    }
+
+    renderRow(data) {
         return (
-            <RepositoryCell data={data}/>
+            <RepositoryCell
+                key={data.id}
+                data={data}
+                onSelect={(data) => this.onSelected(data)}
+            />
         )
     }
 
@@ -118,7 +134,7 @@ class PopularTab extends Component {
             <View style={{flex: 1}}>
                 <ListView
                     dataSource={this.state.dataSource}
-                    renderRow={(data) => PopularTab.renderRow(data)}
+                    renderRow={(data) => this.renderRow(data)}
                     refreshControl={
                         <RefreshControl
                             refreshing={this.state.isRefreshing}

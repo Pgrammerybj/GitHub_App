@@ -60,7 +60,7 @@ export default class HomePage extends Component {
                                                          source={require('../../res/images/ic_polular.png')}/>}
                         badgeText="1"
                         onPress={() => this.setState({selectedTab: 'tb_home'})}>
-                        <PopularPage/>
+                        <PopularPage {...this.props}/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         title="Trending"
