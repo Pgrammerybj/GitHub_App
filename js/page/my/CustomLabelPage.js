@@ -108,8 +108,8 @@ export default class CustomLabelPage extends Component {
                 leftText={leftText}
                 isChecked={isChecked}
                 onClick={() => this.onClick(date)}
-                checkedImage={<Image source={require('../my/img/ic_check_box.png')} style={styles.checkBox}/>}
-                unCheckedImage={<Image source={require('../my/img/ic_check_box_outline_blank.png')}
+                checkedImage={<Image source={require('../../../res/images/ic_check_box.png')} style={styles.checkBox}/>}
+                unCheckedImage={<Image source={require('../../../res/images/ic_check_box_outline_blank.png')}
                                        style={styles.checkBox}/>}
             />
         )

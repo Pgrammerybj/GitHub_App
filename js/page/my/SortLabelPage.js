@@ -126,7 +126,7 @@ class SortCell extends Component {
                 style={this.props.data.checked ? styles.item : styles.hidden}
                 {...this.props.sortHandlers}>
                 <View style={{marginLeft: 10, flexDirection: 'row'}}>
-                    <Image source={require('./img/ic_sort.png')} resizeMode='stretch' style={{
+                    <Image source={require('../../../res/images/ic_sort.png')} resizeMode='stretch' style={{
                         opacity: 1,
                         width: 16,
                         height: 16,
