@@ -4,7 +4,7 @@
   *
   */
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, DeviceEventEmitter, TextInput, WebView} from 'react-native';
+import {View, StyleSheet, DeviceEventEmitter, WebView} from 'react-native';
 import NavigationBar from '../common/NavigationBar';
 import ViewUtils from '../utils/ViewUtils';
 
@@ -12,12 +12,10 @@ export default class RepositoryDetail extends Component {
 
 	constructor(props) {
 		super(props);
-		let title = this.props.item.full_name;
 		this.url = this.props.item.html_url;
 		this.state = {
 			url: this.url,
 			canGoBack: false,
-			title: title
 		}
 	}
 
@@ -25,7 +23,6 @@ export default class RepositoryDetail extends Component {
 	 * 若是有异步操作，则要注意有结果时组件是否状态完成了
 	 */
 	componentWillMount() {
-		// DeviceEventEmitter.emit('showToast', 'jackyang')
 	}
 
 	/**
@@ -39,18 +36,8 @@ export default class RepositoryDetail extends Component {
 		}
 	}
 
-
 	onBack() {
 		this.props.navigator.pop();
-	}
-
-	/**
-	 * 打开输入的网址
-	 */
-	goOpen() {
-		this.setState({
-			url: this.text,
-		});
 	}
 
 	SharePage() {
@@ -72,20 +59,11 @@ export default class RepositoryDetail extends Component {
 		return (
 			<View style={styles.root_container}>
 				<NavigationBar
-					title={'详情'}
+					title={this.props.item.name}
 					style={{backgroundColor: '#2196f3'}}
 					rightButton={ViewUtils.getRightTextButton('Share', () => this.SharePage())}
 					leftButton={ViewUtils.getLeftButton(() => this.onBack())}
 				/>
-				{/*<View style={styles.row}>*/}
-				{/*<Text style={styles.tip} onPress={() => this.goBack()}>Back</Text>*/}
-				{/*<TextInput*/}
-				{/*style={styles.input}*/}
-				{/*defaultValue={URL}*/}
-				{/*onChangeText={text => this.text = text}*/}
-				{/*/>*/}
-				{/*<Text style={styles.tip} onPress={() => this.goOpen()}>Open</Text>*/}
-				{/*</View>*/}
 				<WebView
 					ref={webView => this.webView = webView}
 					source={{uri: this.state.url}}

@@ -15,6 +15,7 @@ import RepositoryDetail from './RepositoryDetail';
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
+//https://api.github.com/search/repositories?q=android&sort=stars
 
 export default class PopularPage extends Component {
 
@@ -110,7 +111,7 @@ class PopularTab extends Component {
 	}
 
 	onSelectRepository(item) {
-		DeviceEventEmitter.emit('showToast', "item.id:" + item.id)
+		DeviceEventEmitter.emit('showToast', "item.id:" + item.id);
 		this.props.navigator.push({
 			title: item.full_name,
 			component: RepositoryDetail,
